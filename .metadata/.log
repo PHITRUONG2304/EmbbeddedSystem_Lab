@@ -488,3 +488,8 @@ java.lang.IllegalThreadStateException
 
 !ENTRY com.espressif.idf.core 1 0 2022-11-19 21:04:15.568
 !MESSAGE org.java_websocket.WebSocketImpl@e104a80 is terminated!
+
+!ENTRY org.eclipse.core.resources 2 2 2022-11-19 21:16:57.046
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2022-11-19 21:16:57.046
+!MESSAGE The project description file (.project) for 'Lab3' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.

@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "driver/gpio.h"
+#include "sdkconfig.h"
+
+uint32_t ulIdleCycleCount1 = 0UL;
+
+void vApplicationIdleHook( void )
+{
+/* This hook function does nothing but increment a counter . */
+    ulIdleCycleCount1++;
+}
+void vApplicationTickHook( void )
+{
+/* This hook function does nothing but increment a counter . */
+}
+
+void task1Funtion(void)
+{
+	while(1){
+		printf("Task 1 is running!");
+	}
+}
+
+void app_main(void)
+{
+    xTaskCreate(task1Funtion, "Task 1", 4096, NULL, 0, NULL);
+
+    vTaskStartScheduler();
+}

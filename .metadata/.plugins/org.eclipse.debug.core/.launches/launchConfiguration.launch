@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.espressif.idf.launch.serial.launchConfigurationType">
+    <stringAttribute key="org.eclipse.cdt.launch.ATTR_LOCATION" value="${system_path:python}"/>
+    <stringAttribute key="org.eclipse.cdt.launch.ATTR_TOOL_ARGUMENTS" value="C:\Espressif\frameworks\esp-idf-v4.4.3\tools\idf.py -p ${serial_port} flash"/>
+    <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="Lab3_v1"/>
+    <stringAttribute key="org.eclipse.cdt.launch.WORKING_DIRECTORY" value="${workspace_loc:Lab3_v1}"/>
+    <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/Lab3_v1"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="4"/>
+    </listAttribute>
+</launchConfiguration>

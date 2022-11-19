@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/FreeRTOSConfig.h"
+#include "freertos/task.h"
+#include "sdkconfig.h"
+
+void task1Function( void *pvParameters )
+{
+	while(1){
+		printf("---------------------Task 1 is running!------------------");
+		vTaskDelay(1300);
+	}
+}
+
+void task2Function( void *pvParameters )
+{
+	while(1){
+		printf("Task 2 is running!\n");
+	}
+}
+
+void idleTaskFunction( void *pvParameters )
+{
+	while(1){
+		printf("Idle task is running!\n");
+	}
+}
+
+
+void app_main(void)
+{
+    xTaskCreate(idleTaskFunction, "Idle task", 4096, NULL, 0, NULL);
+    xTaskCreate(task2Function, "Task 2", 4096, NULL, 0, NULL);
+
+    xTaskCreate(task1Function, "Task 1", 4096, NULL, 2, NULL);
+
+    vTaskStartScheduler();
+}

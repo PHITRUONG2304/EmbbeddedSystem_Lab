@@ -1,56 +1,3 @@
-// #include <stdio.h>
-// #include <stdbool.h>
-// #include <unistd.h>
-// #include "freertos/FreeRTOS.h"
-// #include "FreeRTOSConfig.h"
-// #include "freertos/queue.h"
-
-// QueueHandle_t queue;
-// static uint32_t counter1 = 0;
-// static uint32_t counter2 = 100000;
-
-// void receptionTask(){
-// 	while(1){
-// 		if(uxQueueMessagesWaiting(queue) > 0){
-// 			uint32_t temp;
-// 			xQueueReceive(queue, &temp, portMAX_DELAY);
-// 			printf("Value= %d", temp);
-// 		}
-// 	}
-// }
-
-// void functionalalTask1(){
-// 	while(1){
-// 		counter1++;
-// 		xQueueSendToBack(queue, &counter1, portMAX_DELAY);
-// 		vTaskDelay(pdMS_TO_TICKS(1000));
-// 	}
-// }
-
-// void functionalalTask2(){
-// 	while(1){
-// 		counter2--;
-// 		xQueueSendToBack(queue, &counter2, portMAX_DELAY);
-// 		vTaskDelay(pdMS_TO_TICKS(4500));
-// 	}
-// }
-
-
-// void app_main(void)
-// {
-// 	queue = xQueueCreate(10, sizeof(int));
-
-// 	if(queue == NULL){
-// 		printf("Can not create queue!\n");
-// 	}
-// 	else{
-// 		printf("Create queue success!\n");
-// 		xTaskCreatePinnedToCore(receptionTask, "reception Task", 8192, NULL, tskIDLE_PRIORITY + 1, NULL, 0);
-// 		xTaskCreatePinnedToCore(functionalalTask1, "Task 1", 8192, NULL, tskIDLE_PRIORITY + 2, NULL, 0);
-// 		// xTaskCreatePinnedToCore(functionalalTask2, "Task 2", 8192, NULL, tskIDLE_PRIORITY + 2, NULL, 0);
-// 	}
-// }
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -91,7 +38,7 @@ void app_main(void)
         printf("STRUCTURE Queue created successfully\n\n");
     
     xTaskCreate(receptionTask, "Reception Task", 56000, NULL, 3, NULL);
-    xTaskCreate(controller, "Controller", 56000, NULL, 1, NULL);
+    xTaskCreate(controller, "Controller", 56000, NULL, 3, NULL);
 
 }
 
@@ -99,15 +46,16 @@ void app_main(void)
 void receptionTask(){
     while(1){
         struct DataContainer_t dataToSend = getTask();
+        const TickType_t xDelay = 100 / portTICK_PERIOD_MS;
         // if TickType_t xTicksToWait=portMAX_DELAY the system block if the queue is already full.
         // TickType_t xTicksToWait=0 the system doesn't block if the queue is already full.
 
         if(xQueueSend(dataQueue, &dataToSend, ( TickType_t ) 0) == pdPASS)
-			printf("Successfully sent the to the queue\n");
+			printf("Successfully add request to the queue\n");
         else {
-            printf("Failed sent the to the queue\n");
+            printf("Failed add request to the queue\n");
         }
-        vTaskDelay(pdMS_TO_TICKS(100));
+        vTaskDelay(xDelay);
     }
 }
 
@@ -150,6 +98,7 @@ void controller(){
                 break;
 
             default:
+                xQueueReceive(dataQueue, &dataToReceive, portMAX_DELAY);
                 printf("No functional task receives the request\n\n");
                 vTaskDelay(pdMS_TO_TICKS(INT64_MAX));
                 break;

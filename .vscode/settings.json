@@ -1,4 +1,5 @@
 {
     "idf.portWin": "COM5",
     "cmake.sourceDirectory": "${workspaceFolder}/Lab3/main"
+    "cmake.configureOnOpen": false
 }

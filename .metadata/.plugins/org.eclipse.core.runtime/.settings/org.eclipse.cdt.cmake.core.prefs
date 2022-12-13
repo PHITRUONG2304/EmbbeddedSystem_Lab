@@ -908,6 +908,7 @@ cmakeToolchains/281/arch=riscv32
 cmakeToolchains/281/cdt.toolChain.id=gcc-riscv32-C\:/Espressif/tools/riscv32-esp-elf/esp-2021r2-patch5-8.4.0/riscv32-esp-elf/bin/riscv32-esp-elf-gcc.exe-esp32h2
 cmakeToolchains/281/cdt.toolChain.type=org.eclipse.cdt.build.gcc
 cmakeToolchains/281/os=esp32h2
+<<<<<<< HEAD
 cmakeToolchains/282/__path=C\:\\Espressif\\frameworks\\esp-idf-v4.4.3\\tools\\cmake\\toolchain-esp32.cmake
 cmakeToolchains/282/arch=xtensa
 cmakeToolchains/282/cdt.toolChain.id=gcc-xtensa-C\:/Espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc.exe
@@ -1508,6 +1509,8 @@ cmakeToolchains/401/arch=riscv32
 cmakeToolchains/401/cdt.toolChain.id=gcc-riscv32-C\:/Espressif/tools/riscv32-esp-elf/esp-2021r2-patch5-8.4.0/riscv32-esp-elf/bin/riscv32-esp-elf-gcc.exe-esp32h2
 cmakeToolchains/401/cdt.toolChain.type=org.eclipse.cdt.build.gcc
 cmakeToolchains/401/os=esp32h2
+=======
+>>>>>>> lab5
 cmakeToolchains/42/__path=C\:\\Espressif\\frameworks\\esp-idf-v4.4.3\\tools\\cmake\\toolchain-esp32.cmake
 cmakeToolchains/42/arch=xtensa
 cmakeToolchains/42/cdt.toolChain.id=gcc-xtensa-C\:/Espressif/tools/xtensa-esp32-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc.exe
@@ -1798,5 +1801,9 @@ cmakeToolchains/99/arch=xtensa
 cmakeToolchains/99/cdt.toolChain.id=gcc-xtensa-C\:/Espressif/tools/xtensa-esp32s3-elf/esp-2021r2-patch5-8.4.0/xtensa-esp32s3-elf/bin/xtensa-esp32s3-elf-gcc.exe
 cmakeToolchains/99/cdt.toolChain.type=org.eclipse.cdt.build.gcc
 cmakeToolchains/99/os=esp32s3
+<<<<<<< HEAD
 cmakeToolchains/n=402
+=======
+cmakeToolchains/n=282
+>>>>>>> lab5
 eclipse.preferences.version=1
